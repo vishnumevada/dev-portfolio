@@ -8,7 +8,7 @@ const Header = () => {
     useEffect(() => {
         // Load custom.js functionality after component mounts
         const script = document.createElement("script");
-        script.src = "/assets/js/custom.js";
+        script.src = "assets/js/custom.js";
         script.async = true;
         document.body.appendChild(script);
 
@@ -22,8 +22,8 @@ const Header = () => {
 
         // Cleanup the event listener on component unmount
         return () => {
-            document.body.removeChild(script);
             $(".color-mode").off("click", handleColorModeToggle);
+            document.body.removeChild(script);
         };
     }, []);
 
